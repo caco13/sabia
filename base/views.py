@@ -162,7 +162,8 @@ def course_registration(request, course_id, template_name="base/course_registrat
 
                 mercadopago = MercadoPago()
                 config = {
-                    'id': course_id + '&' + request.user.email, 'title': str(course),
+                    'id': str(course_id) + '&' + request.user.email, 'title': str(
+                    course),
                     'unit_price':
                         float(
                         price),
@@ -197,7 +198,7 @@ def course_registration(request, course_id, template_name="base/course_registrat
     if price:
         mercadopago = MercadoPago()
         config = {
-            'id': course_id + '&' + request.user.email, 'title': str(course),
+            'id': str(course_id) + '&' + request.user.email, 'title': str(course),
             'unit_price': float(price),
             # TODO: ERROR: anonymous user has no attribute 'email'. It's necessary to
             #  treat mercadopago initialization if user is anonymous: will not
