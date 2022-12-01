@@ -238,8 +238,11 @@ def payment_complete(request):
     payment_id = request.GET.get('payment_id')
     # TODO: treat errors
     mercadopago_api = MercadoPagoAPI(payment_id)
+    # TODO: maybe try to get payment data for some time as webhook created was not
+    #  completed
     mercadopago_api.get_payment_data()
-    course_id = mercadopago_api.get_course_id()
+    item_id = mercadopago_api.get_course_id()
+    course_id = item_id.split('&')[0]
     get_object_or_404(Course, pk=int(course_id))
 
     if payment_status == FAILURE_STATUS:
