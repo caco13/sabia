@@ -200,9 +200,11 @@ def course_registration(request, course_id, template_name="base/course_registrat
         config = {
             'id': str(course_id) + '&' + request.user.email, 'title': str(course),
             'unit_price': float(price),
-            # TODO: ERROR: anonymous user has no attribute 'email'. It's necessary to
+            # TODO: 1) ERROR: anonymous user has no attribute 'email'. It's necessary to
             #  treat mercadopago initialization if user is anonymous: will not
             #  display Pagar button.
+            #       2) Define if the e-email will be used. If yes, the e-mail will be
+            #       used in Checkout Pro and will not be asked in the form.
             #'installments': installments, 'payer_email': request.user.email
             'installments': installments,
         }
