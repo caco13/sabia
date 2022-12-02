@@ -203,7 +203,8 @@ def course_registration(request, course_id, template_name="base/course_registrat
             # TODO: ERROR: anonymous user has no attribute 'email'. It's necessary to
             #  treat mercadopago initialization if user is anonymous: will not
             #  display Pagar button.
-            'installments': installments, 'payer_email': request.user.email
+            #'installments': installments, 'payer_email': request.user.email
+            'installments': installments,
         }
         # TODO: try getting preference for more than once. If can't send warning to
         #  admin

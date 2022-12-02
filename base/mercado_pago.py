@@ -28,7 +28,7 @@ class MercadoPago:
                     'unit_price': config['unit_price'],
                 },
             ],
-            'payer': {'email': config['payer_email']},
+            #'payer': {'email': config['payer_email']},
             'payment_methods': {
                 'installments': config['installments']
             },
